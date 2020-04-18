@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_homework 7</title>
+    <style>
+        #menu{
+            width: 100%;
+            height: 100px;
+            color: green;
+            background: aquamarine;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            /*font-style: normal;*/
+        }
+
+        .block{
+            display: none;
+        }
+
+        #but{
+            color: #ffad33;
+            background: #5b8067;
+        }
+
+        .rad{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        ul{
+            list-style-type: none;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+      <!--  <div id="content"></div>
+        <h1>Правила бойцовского клуба</h1>
+        <div id="wrap">
+            <div class="rules rule1">
+                <h2>Первое правило Бойцовского клуба.</h2>
+                <p>Никому не рассказывать о Бойцовском клубе.</p>
+            </div>
+            <div class="rules rule2">
+                <h2>Второе правило Бойцовского клуба.</h2>
+                <p>Никогда никому не рассказывать о Бойцовском клубе.</p>
+            </div>
+            <div class="rules rule3">
+                <h2>Третье правило Бойцовского клуба.</h2>
+                <p>В схватке участвуют только двое.</p>
+            </div>
+            <div class="rules rule4">
+                <h2>Четвертое правило Бойцовского клуба.</h2>
+                <p>Не более одного поединка за один раз.</p>
+            </div>
+
+            <div class="rules rule5">
+                <h2>Пятое правило Бойцовского клуба.</h2>
+                <p>Бойцы сражаются без обуви и голые по пояс.</p>
+            </div>
+            <div class="rules rule6">
+                <h2>Шестое правило Бойцовского клуба.</h2>
+                <p>Поединок продолжается столько, сколько потребуется.</p>
+            </div>
+            <div class="rules rule7">
+                <h2>Седьмое правило Бойцовского клуба.</h2>
+                <p>Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок
+                    окончен.</p>
+            </div>
+            <div class="rules rule8">
+                <h2>Восьмое и последнее правило Бойцовского клуба.</h2>
+                <p>Новичок обязан принять бой.</p>
+            </div>
+        </div>
+
+<div id="text">text for disappear</div>
+        <button id="bot">click</button>
+
+        <form name="mainForm">
+            <input type="number" placeholder="age input" id="age">
+            <input type="submit" id="submit">
+        </form>
+        
+<div id="bg">
+    <div id="menu" class="block">
+        <li><a href="">HOME</a></li>
+        <li><a href="">SERVICE</a></li>
+        <li><a href="">CONTACTS</a></li>
+    </div>
+</div>
+        <button id="but">MENU</button>
+
+    <form action="" name="formOne">
+                    <input type="text" placeholder="your info" name="input1">
+                    <input type="text" placeholder="your info" name="input2">
+                </form>
+                <form action="" name="formTwo">
+                    <input type="text" placeholder="your info" name="input3">
+                    <input type="text" placeholder="your info" name="input4">
+                </form>
+
+                <button id="button">SUBMIT</button>
+
+<div class="table">
+
+</div>
+
+<div class="rad">
+
+</div>
+
+        <form name="badForm">
+            <input type="text" name="badText">
+            <input type="submit" id="badSubmit">
+        </form>-->
+
+
+        <script>
+
+// 1 - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так,
+// чтобы при клике на кнопку исчезал элемент с id="text".
+
+let text = document.querySelector('#text');
+const element = document.querySelector('#bot');
+element.onclick = function () {
+    if (text.hidden === true){
+        text.hidden = false;
+    } else if(text.hidden === false){
+        text.hidden = true;
+    }
+};
+
+// 2 - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
+
+const elementt = document.querySelector('#bot');
+    elementt.onclick = function () {
+        elementt.style.display = 'none';
+    };
+
+// 3 - створити інпут який приймає вік людини та кнопку яка підтверджує дію.
+// При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи
+// меньше він ніж 18, та повідомити про це користувача
+
+const age = document.getElementById('age');
+const submit = document.getElementById('submit');
+
+submit.onclick = function () {
+    if (age.value < 18) {
+        alert(`Your are so yong!`);
+    } else {
+        alert('Welcome!');
+    }
+};
+
+// 4 - Создайте меню, которое раскрывается/сворачивается при клике;
+
+const button2 = document.getElementById('but');
+const bg = document.querySelector('#bg');
+
+button2.onclick = function () {
+  if (bg.style.display === 'none') {
+      bg.style.display = ''
+  } else if (bg.style.display === '') {
+      bg.style.display = 'none'
+  }
+};
+
+// 5 - - Создать список комментариев , пример объекта коментария -
+// {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
+// Вывести список комментариев в документ, каждый в своем блоке.
+// Добавьте каждому комментарию по кнопке для сворачивания его body.
+
+const array = [
+        {title : 'comment 1', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 2', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 3', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 4', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 5', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 6', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 7', body:'lorem ipsum dolo sit ameti Создайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 8', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 9', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 10', body:'lorem ipsum dolo lsit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 11', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 12', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'},
+        {title : 'comment 13', body:'lorem ipsum dolo sit ametiСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при кликеСоздайте меню, которое раскрывается/сворачивается при клике'}
+    ];
+
+for (const arrayElement of array) {
+    const h1 = document.createElement('h1');
+    h1.innerText = arrayElement.title;
+    const div = document.createElement('div');
+    const button = document.createElement('button');
+    button.style.marginLeft = '30px';
+    button.innerText = 'ROLL UP';
+    button.onclick = function () {
+        if (div.style.display === '') {
+            div.style.display = 'none';
+            button.innerText = 'ROLL OUT';
+        } else if( div.style.display === 'none') {
+            div.style.display = '';
+            button.innerText  ='ROLL UP'
+        }
+    };
+
+    h1.appendChild(button);
+    div.style.marginTop = '20px';
+    div.style.marginBottom = '40px';
+    div.style.color = 'gray';
+    div.style.fontSize = '20px';
+    div.innerText = arrayElement.body;
+    h1.appendChild(div);
+    document.body.appendChild(h1);
+}
+
+// 6 - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку
+// считується та виводиться на консоль інформація з цих 2х форм.
+// Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
+// Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі
+// необхідні атрибути.
+
+const input16 = document.forms.formOne.input1;
+const input26 = document.forms.formOne.input2;
+const input36 = document.forms.formTwo.input3;
+const input46 = document.forms.formTwo.input4;
+const button16 = document.getElementById('button');
+
+button16.onclick = () => {
+    console.log(input16.value);
+    console.log(input26.value);
+    console.log(input36.value);
+    console.log(input46.value);
+};
+
+// 7 - Створити функцію, яка генерує таблицю.
+// Перший аргумент визначає кількість строк.
+// Другий параметр визначає кліькіть ячеєк в кожній строці.
+// Третій параметр визначає елемент в який потрібно таблицю додати.
+
+const div = document.getElementsByClassName('table')[0];
+            function createTab(rows, column, append) {
+               const table = document.createElement('table');
+                for (let i = 0; i < rows; i++) {
+                    const tr = document.createElement('tr');
+                    for (let j = 0; j < column; j++) {
+                        const td = document.createElement('td');
+                        // td.innerText = 'some value';
+                        tr.appendChild(td);
+                    }
+                    table.appendChild(tr);
+                }
+                append.appendChild(table);
+            }
+// createTab(5, 6, div);
+
+// 8 - Створити 3 инпута та кнопку. Один визначає кількість рядків,
+// другий - кількість ячеєк, третій вмиіст ячеєк.
+//При натисканні кнопки, вся ця інформація зчитується і формується табличка,
+// з відповідним вмістом.
+//(Додатковачастина для завдання);
+
+const  div1 = document.createElement('div');
+document.body.appendChild(div1);
+div1.style.display = 'flex';
+div1.style.flexDirection = 'column';
+
+const input18 = document.createElement('input');
+input18.type = 'number';
+const input28 = document.createElement('input');
+input28.type = 'number';
+const input38 = document.createElement('input');
+const button8 = document.createElement('button');
+button8.innerText = 'create';
+div1.appendChild(input18);
+div1.appendChild(input28);
+div1.appendChild(input38);
+div1.appendChild(button8);
+
+button8.onclick = function createTab() {
+    const table = document.createElement('table');
+    for (let i = 0; i < input18.value; i++) {
+        const tr = document.createElement('tr');
+        for (let j = 0; j < input28.value; j++) {
+            const td = document.createElement('td');
+            td.innerText = input38.value;
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+    div1.appendChild(table);
+};
+
+// 9 - Напишите «Карусель» – ленту изображений, которую
+// можно листать влево-вправо нажатием на стрелочки.
+
+const arrayImg = [
+    {id: 1, imag_url: 'img1.png'},
+    {id: 2, imag_url: 'img2.png'},
+    {id: 3, imag_url: 'img3.png'},
+    {id: 4, imag_url: 'img4.png'},
+    {id: 5, imag_url: 'img5.png'},
+    {id: 6, imag_url: 'img6.png'},
+    {id: 7, imag_url: 'img7.png'},
+    {id: 8, imag_url: 'img8.png'},
+    {id: 9, imag_url: 'img9.png'},
+    {id: 10, imag_url: 'img10.png'},
+    {id: 11, imag_url: 'img11.png'},
+    {id: 12, imag_url: 'img12.png'},
+];
+
+const rad = document.getElementsByClassName('rad')[0];
+const img = document.createElement('img');
+const butLeft = document.createElement('button');
+const butRight = document.createElement('button');
+butLeft.innerText = 'BACKWARD';
+butRight.innerText = 'FORWARD';
+butLeft.style.width = '150px';
+butLeft.style.backgroundColor = 'silver';
+butLeft.style.color = 'green';
+butRight.style.width = '150px';
+butRight.style.backgroundColor = 'silver';
+butRight.style.color = 'green';
+let index = 0;
+img.width = 320;
+img.src = arrayImg[index].imag_url;
+rad.appendChild(butLeft);
+rad.appendChild(img);
+rad.appendChild(butRight);
+
+butLeft.onclick = () => {
+    if (index - 1 < 0){
+        index = arrayImg.length - 1;
+    } else {
+        index = index - 1;
+    }
+    img.src = arrayImg[index].imag_url;
+};
+
+butRight.onclick = () => {
+    if (index + 1 > arrayImg.length - 1) {
+        index = 0;
+    } else {
+        index = index + 1;
+    }
+    img.src = arrayImg[index].imag_url;
+};
+
+// 10 - Сворити масив не цензцрних слів.
+// Сворити інпут текстового типу.
+// Якщо людина вводить слово і воно міститься в масиві не цензурних слів
+// кинути алерт з попередженням.
+// Перевірку робити при натисканні на кнопку
+
+const badArray10 = ['один', 'два', 'три', 'чотири', 'пять', 'шість', 'сім', 'вісім'];
+
+const badText10 = document.forms.badForm.badText;
+const badSubmit10 = document.getElementById('badSubmit');
+
+badSubmit10.onclick = (a) => {
+    badArray.forEach(bad => {
+         const lower = badText10.value.toLowerCase();
+            if (lower === bad)  {
+                alert('No! No! No!');
+            }
+        });
+    };
+
+// 11 - Сворити масив не цензцрних слів.
+//   Сворити інпут текстового типу.
+//   Потрібно перевіряти чи не містить ціле речення в собі погані слова.
+//   Кинути алерт з попередженням у випадку якщо містить.
+//   Перевірку робити при натисканні на кнопку
+
+const badArray = ['один', 'два', 'три', 'чотири', 'пять', 'шість', 'сім', 'вісім'];
+
+const badText = document.forms.badForm.badText;
+const badSubmit = document.getElementById('badSubmit');
+
+badSubmit.onclick = (a) => {
+    badArray.forEach(bad => {
+        const lower = badText.value.toLowerCase();
+            if (lower.includes(bad))  {
+                alert('No! No! No!');
+            }
+        });
+    };
+
+// 12 - создать скрипт, который берет считывает на странице (rules.html)
+// текст и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
+// При клике на пункт оглавления вы должны отправляться к этому пункту в тексте
+
+const content = document.getElementById('content');
+const H1 = document.getElementsByTagName('h1')[0];
+H1.style.fontSize = '25px';
+H1.style.display = 'flex';
+H1.style.flexDirection = 'column';
+H1.style.paddingRight = '30px';
+const arrayH2 = document.getElementsByTagName('h2');
+const ul = document.createElement('ul');
+
+for (let i = 0; i < arrayH2.length; i++) {
+    const h2 = arrayH2[i];
+    const a = document.createElement('a');
+    const li = document.createElement('li');
+    li.style.marginTop = '23px';
+    a.innerText = h2.innerText;
+    h2.setAttribute('id', `${i}`);
+    a.style.fontSize = '15px';
+    a.href = '#' + i;
+    li.appendChild(a);
+    ul.appendChild(li);
+}
+
+H1.appendChild(ul);
+H1.style.color = 'gray';
+content.appendChild(H1);
+content.style.width = '400px';
+
+// 13 - взять массив пользователей usersWithAddress
+// Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива.
+// Фильтры могут работать как вместе так и по отдельности.
+// 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
+// 2й - оставляет старше 29 лет включительно
+// 3й - оставляет тех у кого город киев
+// Данные выводить в документ
+
+let usersWithAddress = [
+    {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+    {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
+    {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+    {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
+    {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+    {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
+    {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
+    {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+    {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
+    {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+    {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
+];
+
+const mainDiv = document.createElement('div');
+document.body.appendChild(mainDiv);
+mainDiv.style.display = 'flex';
+mainDiv.style.flexDirection = 'column';
+
+
+const checkbox1 = document.createElement('input');
+const checkbox2 = document.createElement('input');
+const checkbox3 = document.createElement('input');
+const label1 = document.createElement('label');
+const label2 = document.createElement('label');
+const label3 = document.createElement('label');
+const button = document.createElement('button');
+button.style.backgroundColor = 'silver';
+button.style.width = '150px';
+button.style.margin = '10px';
+const divWithUsers = document.createElement('div');
+
+label1.innerText = 'Status false';
+label2.innerText = '29 and more';
+label3.innerText = 'Kiev city';
+button.innerText = 'CHECKED';
+
+checkbox1.type = 'checkbox';
+checkbox2.type = 'checkbox';
+checkbox3.type = 'checkbox';
+
+mainDiv.appendChild(checkbox1);
+mainDiv.appendChild(label1);
+mainDiv.appendChild(checkbox2);
+mainDiv.appendChild(label2);
+mainDiv.appendChild(checkbox3);
+mainDiv.appendChild(label3);
+mainDiv.appendChild(button);
+mainDiv.appendChild(divWithUsers);
+renderUsers(usersWithAddress);
+
+button.onclick = () => {
+    let newArray = usersWithAddress;
+    if (checkbox1.checked) newArray = newArray.filter(value => !value.status);
+    if (checkbox2.checked) newArray = newArray.filter(value => value.age >=29 );
+    if (checkbox3.checked) newArray = newArray.filter(value => value.address.city === 'Kyiv' );
+    divWithUsers.innerHTML = '';
+    renderUsers(newArray);
+};
+
+function renderUsers(array) {
+    array.forEach(user => {
+        const userDiv= document.createElement('div');
+        userDiv.innerHTML = `name: ${user.name}, age: ${user.age}, status: ${user.status}, city: ${user.address.city}`;
+        divWithUsers.appendChild(userDiv);
+    })
+}
+
+        </script>
+</body>
+</html>
